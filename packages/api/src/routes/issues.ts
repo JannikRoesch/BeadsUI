@@ -185,7 +185,7 @@ issues.post('/:id/claim', async (c) => {
 issues.delete('/:id', async (c) => {
   const id = c.req.param('id')
   try {
-    const data = await bd(['delete', id, '--yes'])
+    const data = await bd(['delete', id, '--force'])
     return c.json({ data })
   } catch (err) {
     return handleError(c, err)
