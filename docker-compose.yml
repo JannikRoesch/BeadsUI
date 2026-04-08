@@ -1,0 +1,12 @@
+services:
+  beadsui:
+    build: .
+    ports:
+      - "3001:3001"
+    volumes:
+      # Mount your beads project workspace here
+      - ${BEADS_WORKSPACE:-./}:/workspace
+    environment:
+      - PORT=3001
+      - BEADS_WORKSPACE=/workspace
+    restart: unless-stopped

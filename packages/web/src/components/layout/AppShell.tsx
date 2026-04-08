@@ -3,7 +3,12 @@ import { Outlet } from 'react-router-dom'
 import { Sidebar } from './Sidebar'
 import { TopBar } from './TopBar'
 
-export function AppShell() {
+interface AppShellProps {
+  onSearch?: () => void
+  onCreateIssue?: () => void
+}
+
+export function AppShell({ onSearch, onCreateIssue }: AppShellProps) {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const stored = localStorage.getItem('theme')
     if (stored === 'dark' || stored === 'light') return stored
@@ -40,6 +45,8 @@ export function AppShell() {
         <TopBar
           theme={theme}
           onToggleTheme={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
+          onSearch={onSearch}
+          onCreateIssue={onCreateIssue}
         />
         <main className="flex-1 overflow-y-auto p-6">
           <Outlet />

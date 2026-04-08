@@ -1,0 +1,8 @@
+node_modules
+.git
+.beads
+*.db
+.dolt
+dist
+.env
+.env.local
