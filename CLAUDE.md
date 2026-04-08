@@ -2,21 +2,40 @@
 
 ## Project: BeadsUI
 
-_Add a short description of this project here._
+Feature-rich WebUI for the Beads issue tracker — pnpm monorepo with React + Hono.
+
+## Stack
+
+- **Monorepo**: pnpm workspaces
+- **Frontend** (`packages/web`): React 18 + TypeScript + Vite + Tailwind CSS v4 + TanStack Query + React Flow + cmdk
+- **Backend** (`packages/api`): Hono + Node.js + TypeScript + tsx
 
 ## Build & Test
 
 ```bash
-# Add your build and test commands here
+# First time: cp .env.example .env and set BEADS_WORKSPACE
+pnpm install
+pnpm dev            # Starts web (port 5173) + api (port 3001)
+pnpm -F api dev     # API only
+pnpm -F web dev     # Web only
+pnpm build          # Production build
+pnpm typecheck      # Type-check all packages
 ```
 
 ## Architecture Overview
 
-_Add a brief overview of this project's architecture._
+```
+packages/
+  api/    Hono REST API — wraps bd CLI via BEADS_WORKSPACE env
+  web/    React SPA — IssueList, Kanban, DependencyGraph, CommandPalette
+```
 
 ## Conventions & Patterns
 
-_Add project-specific conventions here._
+- TypeScript strict + exactOptionalPropertyTypes
+- All API responses: `{ data }` success, `{ error }` failure
+- `BEADS_WORKSPACE` env var points API at target beads workspace
+- Tailwind CSS v4 with `@tailwindcss/vite` plugin (`@import "tailwindcss"` in CSS)
 
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:ca08a54f -->
 ## Beads Issue Tracker
