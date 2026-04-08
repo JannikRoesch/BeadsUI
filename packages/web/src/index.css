@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg: 255 255 255;
+    --color-bg-subtle: 248 250 252;
+    --color-border: 226 232 240;
+    --color-text: 15 23 42;
+    --color-text-muted: 100 116 139;
+    --color-accent: 124 58 237;
+  }
+
+  .dark {
+    --color-bg: 10 10 15;
+    --color-bg-subtle: 17 24 39;
+    --color-border: 31 41 55;
+    --color-text: 248 250 252;
+    --color-text-muted: 148 163 184;
+    --color-accent: 167 139 250;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    font-family: system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
