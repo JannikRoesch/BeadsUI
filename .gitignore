@@ -1,0 +1,20 @@
+# Beads / Dolt
+.dolt/
+*.db
+.beads-credential-key
+
+# Node
+node_modules/
+dist/
+.env
+.env.local
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
